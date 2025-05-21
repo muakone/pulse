@@ -19,7 +19,7 @@ export default function LoginForm() {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000))
       toast.success("OTP sent to your email!")
-      router.push("/verify-otp")
+      router.push("/select-user-type")
     } catch (error) {
       toast.error("Failed to send OTP. Please try again.")
     } finally {
