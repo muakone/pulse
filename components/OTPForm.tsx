@@ -23,6 +23,10 @@ export default function OTPForm() {
         inputRefs.current[index + 1]?.focus()
       }
     }
+    if (value.length === 6 || index === 5) {
+      inputRefs.current[index]?.blur()
+      handleSubmit(new Event("submit"))
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -48,7 +52,7 @@ export default function OTPForm() {
             key={index}
             type="text"
             maxLength={1}
-            className="w-12 h-12 text-center bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-12 h-12 text-center bg-white border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500"
             value={digit}
             onChange={(e) => handleChange(index, e.target.value)}
             ref={(el) => (inputRefs.current[index] = el)}

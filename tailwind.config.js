@@ -28,6 +28,32 @@ module.exports = {
           800: "#065F46",
           900: "#064E3B",
         },
+        status: {
+          pending: {
+            bg: "#FEF3C7",
+            text: "#92400E",
+          },
+          waiting: {
+            bg: "#FEF3C7",
+            text: "#92400E",
+          },
+          in_progress: {
+            bg: "#DBEAFE",
+            text: "#1E40AF",
+          },
+          completed: {
+            bg: "#D1FAE5",
+            text: "#065F46",
+          },
+          cancelled: {
+            bg: "#FEE2E2",
+            text: "#991B1B",
+          },
+          scheduled: {
+            bg: "#DBEAFE",
+            text: "#1E40AF",
+          },
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -37,4 +63,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

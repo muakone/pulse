@@ -1,27 +1,35 @@
-import type React from "react"
-import { Inter } from "next/font/google"
-import { Toaster } from "sonner"
-import "./globals.css"
+import type React from "react";
+import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
+import { UserProvider } from "@/contexts/UserContext";
+import { SearchProvider } from "@/contexts/SearchContext";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Pulse",
   description: "Healthcare on demand",
-  generator: "v0.dev",
-}
+  icons: {
+    icon: "/logo.ico", 
+  },
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black text-white`}>
-        {children}
-        <Toaster richColors position="top-center" />
+      <body className={`${inter.className}`}>
+        <UserProvider>
+          <SearchProvider>
+            {children}
+            <Toaster position="top-right" />
+          </SearchProvider>
+        </UserProvider>
       </body>
     </html>
-  )
+  );
 }

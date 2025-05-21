@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { FaHospital, FaAmbulance, FaUser } from "react-icons/fa"
+import { FaHospital, FaAmbulance, FaUser, FaArrowRight } from "react-icons/fa"
 
 const userTypes = [
   { id: "hospital", name: "Hospital", icon: FaHospital },
@@ -29,8 +29,10 @@ export default function UserTypeSelection() {
           <button
             key={type.id}
             type="button"
-            className={`flex items-center justify-center p-4 border rounded-md ${
-              selectedType === type.id ? "bg-green-600 border-green-500" : "bg-gray-800 border-gray-700 hover:bg-gray-700"
+            className={`flex items-center justify-center p-4 border rounded-md text-gray-900 ${
+              selectedType === type.id
+                ? "bg-green-600 border-green-500 text-white"
+                : "bg-white border-gray-300 hover:bg-gray-100"
             }`}
             onClick={() => setSelectedType(type.id)}
           >
@@ -41,10 +43,10 @@ export default function UserTypeSelection() {
       </div>
       <button
         type="submit"
-        className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+        className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md shadow-lg transition-all duration-300 ease-in-out transform hover:scale-[1.02] flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-50"
         disabled={!selectedType}
       >
-        Continue
+        Continue <FaArrowRight className="ml-2" />
       </button>
     </form>
   )

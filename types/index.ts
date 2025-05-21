@@ -4,12 +4,14 @@ export interface IHospital {
   lat: number
   lng: number
   specialties: string[]
-  averageResponseTime: number
+  averageResponseTime: number // in minutes
   peopleInQueue: number
   beds: number
   doctors: number
-  averageConsultancyPrice: number
+  averageConsultancyPrice: number // in Naira (₦)
 }
+
+
 
 export interface IMedTransport {
   id: number
